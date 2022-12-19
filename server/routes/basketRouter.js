@@ -3,6 +3,6 @@ const basketController = require('../controllers/basketController');
 const router = new Router();
 
 router.post('/', basketController.create);
-router.get('/', basketController.getAllComicsByBasketId);
-router.delete('/', basketController.deleteComics);
+router.get('/', basketController.getAllProductByBasketId);
+router.delete('/', basketController.deleteProduct);
 module.exports = router;

@@ -14,7 +14,7 @@ export const fetchType = async () => {
 };
 
 export const createGenre = async (genre) => {
-  const { data } = await $authHost.post('api/genre', {
+  const { data } = await $authHost.post('api/branch', {
     name: genre,
   });
 
@@ -22,7 +22,7 @@ export const createGenre = async (genre) => {
 };
 
 export const fetchGenre = async () => {
-  const { data } = await $host.get('api/genre');
+  const { data } = await $host.get('api/branch');
   return data;
 };
 
@@ -31,13 +31,13 @@ const config = {
 };
 
 export const createComics = async (comics) => {
-  const { data } = await $authHost.post('api/comics', comics, config);
+  const { data } = await $authHost.post('api/product', comics, config);
 
   return data;
 };
 
 export const fetchComics = async (typeId, page, limit = 5, name) => {
-  const { data } = await $host.get('api/comics', {
+  const { data } = await $host.get('api/product', {
     params: {
       typeId,
       page,
@@ -49,14 +49,14 @@ export const fetchComics = async (typeId, page, limit = 5, name) => {
 };
 
 export const fetchOneComics = async (id) => {
-  const { data } = await $host.get('api/comics/' + id);
+  const { data } = await $host.get('api/product/' + id);
   return data;
 };
 
 export const deleteComicsInShop = async (id) => {
-  const { data } = await $authHost.delete('api/comics', {
+  const { data } = await $authHost.delete('api/product', {
     params: {
-      comicsId: id,
+      productId: id,
     },
   });
   console.log(data);

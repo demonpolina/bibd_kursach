@@ -9,7 +9,7 @@ const TypeBar = observer(() => {
   return (
     <ListGroup>
       <ListGroup.Item
-        style={{ cursor: 'pointer' }}
+        className='type_item'
         active={comics.selectedType.id === undefined}
         onClick={() => {
           comics.setSelectedType({});
@@ -19,7 +19,7 @@ const TypeBar = observer(() => {
       </ListGroup.Item>
       {comics.types.map((type) => (
         <ListGroup.Item
-          style={{ cursor: 'pointer' }}
+          className='type_item'
           key={type.id}
           active={type.id === comics.selectedType.id}
           onClick={() => {

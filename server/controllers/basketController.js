@@ -1,23 +1,23 @@
-const { BasketComics, Basket, Comics } = require('../models/models');
+const { BasketProduct, Basket, Product } = require('../models/models');
 const ApiError = require('../error/ApiError');
 
 class BasketController {
   async create(req, res) {
-    const { comicId, userId } = req.body;
-    console.log(comicId, userId);
+    const { productId, userId } = req.body;
+    console.log(productId, userId);
     const { id } = await Basket.findOne({
       where: {
         userId,
       },
     });
 
-    const basket = await BasketComics.create({
-      comicId,
+    const basket = await BasketProduct.create({
+      productId,
       basketId: id,
     });
     return res.json(basket);
   }
-  async getAllComicsByBasketId(req, res) {
+  async getAllProductByBasketId(req, res) {
     const { userId } = req.query;
 
     const { id } = await Basket.findOne({
@@ -26,29 +26,32 @@ class BasketController {
       },
     });
 
-    const comicsesId = await BasketComics.findAll({
-      attributes: ['comicId'],
+    const productesId = await BasketProduct.findAll({
+      attributes: ['productId'],
       where: {
         basketId: id,
       },
     });
+    console.log(productesId)
     const com = [];
 
-    comicsesId.forEach((element) => {
-      com.push(element.comicId);
+
+    productesId.forEach((element) => {
+      com.push(element.productId);
     });
-    const comicses = await Comics.findAll({
+    console.log(com)
+    const productes = await Product.findAll({
       where: {
         id: [...com],
       },
     });
-    return res.json(comicses);
+    return res.json(productes);
   }
 
-  async deleteComics(req, res) {
-    const { comicsId } = req.query;
+  async deleteProduct(req, res) {
+    const { productId } = req.query;
 
-    const count = await BasketComics.destroy({ where: { comicId: comicsId } });
+    const count = await BasketProduct.destroy({ where: { productId: productId } });
     return res.json(count);
   }
 }

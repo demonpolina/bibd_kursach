@@ -28,7 +28,7 @@ const Basket = sequelize.define('basket', {
   },
 });
 
-const BasketComics = sequelize.define('basket_comics', {
+const BasketProduct = sequelize.define('basket_product', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -36,7 +36,7 @@ const BasketComics = sequelize.define('basket_comics', {
   },
 });
 
-const Comics = sequelize.define('comics', {
+const Product = sequelize.define('product', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -79,7 +79,7 @@ const Type = sequelize.define('type', {
   },
 });
 
-const Genre = sequelize.define('genre', {
+const Branch = sequelize.define('branch', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -104,7 +104,7 @@ const Rating = sequelize.define('rating', {
   },
 });
 
-const ComicsInfo = sequelize.define('comics_info', {
+const ProductInfo = sequelize.define('product_info', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -120,7 +120,7 @@ const ComicsInfo = sequelize.define('comics_info', {
   },
 });
 
-const TypeGenre = sequelize.define('type_genre', {
+const TypeBranch = sequelize.define('type_branch', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -134,43 +134,43 @@ Basket.belongsTo(User);
 User.hasMany(Rating);
 Rating.belongsTo(User);
 
-Basket.hasMany(BasketComics);
-BasketComics.belongsTo(Basket);
+Basket.hasMany(BasketProduct);
+BasketProduct.belongsTo(Basket);
 
-Type.hasMany(Comics);
-Comics.belongsTo(Type);
+Type.hasMany(Product);
+Product.belongsTo(Type);
 
-Comics.hasMany(Genre, {
-  as: 'comicsGenres',
+Product.hasMany(Branch, {
+  as: 'productBranch',
 });
-Genre.belongsTo(Comics);
+Branch.belongsTo(Product);
 
-Comics.hasMany(Rating);
-Rating.belongsTo(Comics);
+Product.hasMany(Rating);
+Rating.belongsTo(Product);
 
-Comics.hasMany(BasketComics);
-BasketComics.belongsTo(Comics);
+Product.hasMany(BasketProduct);
+BasketProduct.belongsTo(Product);
 
-Comics.hasMany(ComicsInfo, {
+Product.hasMany(ProductInfo, {
   as: 'info',
 });
-ComicsInfo.belongsTo(Comics);
+ProductInfo.belongsTo(Product);
 
-Type.belongsToMany(Genre, {
-  through: TypeGenre,
+Type.belongsToMany(Branch, {
+  through: TypeBranch,
 });
-Genre.belongsToMany(Type, {
-  through: TypeGenre,
+Branch.belongsToMany(Type, {
+  through: TypeBranch,
 });
 
 module.exports = {
   User,
   Basket,
-  BasketComics,
-  Comics,
+  BasketProduct,
+  Product,
   Type,
-  Genre,
+  Branch,
   Rating,
-  TypeGenre,
-  ComicsInfo,
+  TypeBranch,
+  ProductInfo,
 };

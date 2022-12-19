@@ -37,8 +37,8 @@ const userNavBar = observer(() => {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <NavLink style={{ color: 'black' }} to={SHOP_ROUTE}>
-          MangoShop
+        <NavLink className={'nav_main'} to={SHOP_ROUTE}>
+          Bulochki
         </NavLink>
 
         {user.isAuth ? (
@@ -121,7 +121,7 @@ const userNavBar = observer(() => {
                   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action4">
                     Another action
-                  </NavDropdown.Item>
+                  </NavDropdown.Item>ghjkl;
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#action5">
                     Something else here

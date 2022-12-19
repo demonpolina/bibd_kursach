@@ -15,7 +15,7 @@ const ComicsPages = () => {
 
   const { user } = useContext(Context);
   const addComics = () => {
-    addComicsToBasket(id, user.userInfo.id).then((data) => {});
+    addComicsToBasket(id, user.userInfo.id).then((data) => { });
   };
 
   return (

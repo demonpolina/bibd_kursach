@@ -23,24 +23,24 @@ const Admin = () => {
         className="mt-4 p-2"
         onClick={() => setTypeVisible(true)}
       >
-        Добавить тип комикса
+        Добавить тип продукции
       </Button>
       <Button
         variant="outline-dark"
         className="mt-4 p-2"
         onClick={() => setGenreVisible(true)}
       >
-        Добавить жанр
+        Добавить категорию продукции
       </Button>
       <Button
         variant="outline-dark"
         className="mt-4 p-2"
         onClick={() => setComicsVisible(true)}
       >
-        Добавить комикс
+        Добавить продукцию
       </Button>
       <Button variant="outline-dark" className="mt-4 p-2" onClick={createPDF}>
-        Выгрузить все комиксы в PDF файл
+        Выгрузить все изделия в PDF файл
       </Button>
       <CreateGenres show={genreVisible} onHide={() => setGenreVisible(false)} />
       <CreateType show={typeVisible} onHide={() => setTypeVisible(false)} />
@@ -51,5 +51,4 @@ const Admin = () => {
     </Container>
   );
 };
-
 export default Admin;

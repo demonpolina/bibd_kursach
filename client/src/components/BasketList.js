@@ -4,6 +4,8 @@ import { Card, Container, Row } from 'react-bootstrap';
 import { Context } from '..';
 import { fetchAllComics } from '../http/basketAPI';
 import BasketItem from './BasketItem';
+import AdminStat from './AdminStat';
+import UserStat from './UserStat';
 
 const BasketList = observer(() => {
   const { user } = useContext(Context);
@@ -37,6 +39,9 @@ const BasketList = observer(() => {
       >
         <h3>Totalcost</h3>
         <h4>{price.reduce((sum, current) => sum + current, 0)}</h4>
+        <h3>Статус Заказа:</h3>
+        {user.role ? <AdminStat /> : <UserStat />}
+
       </Card>
     </Container>
   );

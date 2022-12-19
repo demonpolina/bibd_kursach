@@ -15,7 +15,7 @@ const CreateGenres = ({ show, onHide }) => {
     <Modal show={show} onHide={onHide} size="lg" centered>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Добавить жанр
+          Добавить категория
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -23,7 +23,7 @@ const CreateGenres = ({ show, onHide }) => {
           <Form.Control
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            placeholder={'Введите название типа комикса'}
+            placeholder={'Введите название категории продукции'}
           />
         </Form>
       </Modal.Body>

@@ -23,7 +23,7 @@ const CreateType = ({ show, onHide }) => {
           <Form.Control
             value={value}
             onChange={(e) => setValue(e.target.value)}
-            placeholder={'Введите название типа комикса'}
+            placeholder={'Введите название типа продукции '}
           />
         </Form>
       </Modal.Body>

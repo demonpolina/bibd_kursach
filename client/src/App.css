@@ -32,7 +32,23 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.nav_main {
+  color: black;
+  font-size: 24px;
+  text-decoration: none
+}
+
+.nav_main:hover {
+  text-decoration: solid;
+  color: brown
+}
+
+.type_item:hover {
+  background: lightblue;
 }

@@ -44,7 +44,7 @@ const CreateComics = observer(({ show, onHide }) => {
     <Modal show={show} onHide={onHide} size="lg" centered>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Добавить комикс
+          Добавить продукцию
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -66,7 +66,7 @@ const CreateComics = observer(({ show, onHide }) => {
           </Dropdown>
           <Dropdown className="mt-2 mb-2">
             <Dropdown.Toggle>
-              {comics.selectedGenre.name || 'Выберите жанр'}
+              {comics.selectedGenre.name || 'Выберите категория'}
             </Dropdown.Toggle>
             <Dropdown.Menu>
               {comics.genres.map((genre) => (
@@ -84,24 +84,24 @@ const CreateComics = observer(({ show, onHide }) => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="mt-3"
-            placeholder="Введите название комикса"
+            placeholder="Введите название продукции"
           />
           <Form.Control
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className="mt-3"
-            placeholder="Введите описание комикса"
+            placeholder="Введите описание продукции"
           />
           <Form.Control
             value={price}
             onChange={(e) => setPrice(Number(e.target.value))}
             className="mt-3"
-            placeholder="Введите цену комикса"
+            placeholder="Введите цену продукции"
             type="number"
           />
           <Form.Control
             className="mt-3"
-            placeholder="Введите изображение комикса"
+            placeholder="Введите изображение продукции"
             id="file"
             type="file"
             onChange={selectFile}

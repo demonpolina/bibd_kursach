@@ -31,11 +31,14 @@ const adminNavBar = observer(() => {
     navigate(LOGIN_ROUTE);
   };
   console.log(user.isAuth);
+
+
+  
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <NavLink style={{ color: 'black' }} to={SHOP_ROUTE}>
-          MangoShop
+        <NavLink className={'nav_main'} to={SHOP_ROUTE}>
+          Bulochki
         </NavLink>
 
         {user.isAuth ? (
